@@ -1,4 +1,23 @@
-input{
-    width: 40%;
-    margin: 10px 0 0 0;
+.form-control{
+    width: 70%;
+    margin: 10px 0 0 15px;
+    border-radius: 4px;
+    height: 32px;
+}
+
+p{
+    padding-left: 15px;
+}
+
+#salvar{
+    margin: 15px 0 0 15px;
+    width: 12%;
+}
+
+h1{
+    padding-top: 15px;
+}
+
+h3{
+    padding-left: 15px;
 }

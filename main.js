@@ -1,3 +1,9 @@
+// const electron = require('electron')
+
+// const app = electron.app
+
+// const BrowserWindow = electron.BrowserWindow
+
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 

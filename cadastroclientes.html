@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Prevenir</title>
+  <title>Sistema de Vendas</title>
 
   <link rel="stylesheet" href="./photon/css/photon.min.css">
 
@@ -26,7 +26,7 @@
 <body>
   <div class="window">
     <header class="toolbar toolbar-header">
-      <h1 class="title">Prevenir</h1>
+      <h1 class="title">Sistema de Vendas</h1>
 
       <div class="toolbar-actions">
 
@@ -50,7 +50,7 @@
       <div class="pane-group">
         <div class="pane-sm sidebar">Menu</div>
         <div class="pane">
-          <form action="">
+          <form id="formCadastro" action="">
             <h3>Cadastro de Clientes</h3>
             <div class="form-group">
               <input id="nome" type="text" class="form-control" placeholder="Nome">
@@ -64,10 +64,12 @@
               <input id="telefone" type="text" class="form-control" placeholder="Telefone">
             </div>
 
+            <div class="form-group">
+              <input id="endereco" type="text" class="form-control" placeholder="Endereço">
+            </div>
+
             <button id="salvar" type="button" class="btn btn-positive">Salvar</button>
           </form>
-
-
 
         </div>
       </div>

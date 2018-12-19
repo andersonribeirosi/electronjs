@@ -1,67 +1,90 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Controle de vendas</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./photon/css/photon.min.css">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Sistema de Vendas</title>
+    <link rel="stylesheet" href="./style.css">
+  
+    <script> window.$ = window.jQuery = require('jquery');</script>
+  
+    <script src="./controller.js"></script>
+  </head>
 
-  <link rel="stylesheet" href="./photon/css/photon.min.css">
-
-  <link rel="stylesheet" href="./style.css">
-
-  <script> window.$ = window.jQuery = require('jquery');</script>
-
-  <script src="./controller.js"></script>
-
-
-
-  <!-- <script type="text/javascript">
-    $(document).ready(function(){
-      $('.btn-group').hide();
-    });
-  </script> -->
-
-</head>
-
-<body>
-  <div class="window">
-    <header class="toolbar toolbar-header">
-      <h1 class="title">Sistema de Vendas</h1>
-
-      <div class="toolbar-actions">
-
-        <div class="btn-group pull-right">
-
-          <button id="mini" class="btn btn-default">
-            <span class="icon icon-minus"></span>
-          </button>
-          <button id="max" class="btn btn-default">
-            <span class="icon icon-plus"></span>
-          </button>
-          <button id="fechar" class="btn btn-default">
-            <span class="icon icon-cancel"></span>
-          </button>
+  <body>
+    <div class="window">
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Sistema de Vendas</h1>
+      
+            <div class="toolbar-actions">
+      
+              <div class="btn-group pull-right">
+      
+                <button id="mini" class="btn btn-default">
+                  <span class="icon icon-minus"></span>
+                </button>
+                <button id="max" class="btn btn-default">
+                  <span class="icon icon-plus"></span>
+                </button>
+                <button id="fechar" class="btn btn-default">
+                  <span class="icon icon-cancel"></span>
+                </button>
+              </div>
+            </div>
+      
+          </header>
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane-sm sidebar">
+            <p>Menu</p></div>
+          <div class="pane">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                      <th>Nome</th>
+                      <th>CPF</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="app">
+                    <td v-for="cliente in clientes" >
+                      {{cliente.nome}}
+                    </td>
+                    <td v-for="cliente in clientes" >
+                        {{cliente.cpf}}
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
         </div>
       </div>
-
-    </header>
-
-    <div class="window-content">
-      <div class="pane-group">
-        <div class="pane-sm sidebar">Menu</div>
-        <div class="pane">
-        </div>
-      </div>
+      <footer class="toolbar toolbar-footer">
+          <h1 class="title">Desenvolvido por Anderson Ribeiro</h1>
+        </footer>
     </div>
-    <footer class="toolbar toolbar-footer">
-      <h1 class="title">Desenvolvido por Anderson Ribeiro</h1>
-    </footer>
-</body>
-
-<script>
-   // You can also require other files to run in this process
-   require('./renderer.js')
-</script>
-</body>
-
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script>
+    var read = require('read-file-utf8')
+    var loki = require('lokijs');
+    var db = new loki('loki.json');
+    var data = read(__dirname+'/loki.json');
+    db.loadJSON(data);
+    window.vue = require('vue');
+    // db.loadJSON()
+    var clientes = db.getCollection('clientes');
+    console.log(db);
+    new Vue({
+      el: '#app',
+      data: {
+        clientes: []
+      },
+      mounted: function(){
+        this.clientes = clientes.data;
+        console.log(this.clientes);
+      }
+    })
+  </script>
 </html>

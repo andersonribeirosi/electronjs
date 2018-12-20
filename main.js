@@ -16,7 +16,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({width: 1300, height: 700, frame: false, transparent: false})
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile('cadastroclientes.html')
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
